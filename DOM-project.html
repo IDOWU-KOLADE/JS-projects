@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>YouTube Suscribe Button</p>
+  <button class="subscribe">
+    Subscribe
+  </button>
+<br><br>
+<p>Rock Paper Scissors</p>
+<a href="rock_paper_scissors1.html">Click here</a>
+<br><br>
+<p>Amazon Shipping Calculator</p>
+<p>Orders under $40 = +$10 shipping</p>
+<p>Orders over $40 = FREE shipping</p>
+
+<input class="collector">
+<button class="calc">Calculate</button>
+<p class="display"></p>
+  <script>
+      const subscribe = document.querySelector('.subscribe')
+      subscribe.addEventListener('click',()=>{
+
+        if(subscribe.innerHTML.toLowerCase() === 'subscribe'){
+          subscribe.innerHTML='Subscribed'
+        }else {
+          subscribe.innerHTML='Subscribe'
+        }
+
+      });
+
+const collect = document.querySelector('.collector');
+const calc = document.querySelector('.calc');
+
+calc.addEventListener('click',()=>{
+  const val = Number(collect.value);
+
+  if (isNaN(val)|| val<0){
+    document.querySelector('.display').innerHTML=`Please enter a valid number!👌`
+    return;
+  }
+  if (collect.value<40) {
+    const num = val +10;
+    document.querySelector('.display').innerHTML=`$${num.toFixed(2)}`
+  } else if(collect.value>=40){
+   const num2 = val;
+   document.querySelector('.display').innerHTML=`$${num2.toFixed(2)}`
+  }
+});
+
+collect.addEventListener('keydown',(event)=>{
+if(event.key==='Enter'){
+  calc.click();
+}
+})
+  </script>
+</body>
+</html>
