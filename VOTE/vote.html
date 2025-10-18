@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voting Portal</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carattere&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Great+Vibes&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="vote.css">
+</head>
+<body>
+  <div class="div1" id="inputt">
+      <h1><span class="green-text">Election</span> Voting <span class="green-text-inverse">Portal</span></h1>
+      <p>Cast your votes now!</p>
+  </div>
+
+ <p class="maybe">
+
+ </p>
+ <main>
+<div class="main-container">
+
+  <div class="main-select-div">
+
+    <div class="select-candidate-div">
+      <div class="president_img_div">
+        <img src="images/Goodluck jonathan portrait.jpg" alt="Goodluck Jonathan" class="president pres_goodluck">
+      </div>
+      
+      <button class="select goodluck" onclick="
+      btn_toggle(this,'goodluck','buhari','tinubu')">SELECT</button>
+    </div>
+    <div class="select-candidate-div">
+    <div class="president_img_div">
+      <img src="images/Peter-Obi-2.jpg" alt="Mohammed Buhari" class="president pres_buhari"> 
+    </div>
+      
+      <button class="select buhari" onclick="
+      btn_toggle(this,'buhari','goodluck','tinubu')">SELECT</button>
+    </div>
+    <div class="select-candidate-div">
+      <div class="president_img_div">
+          <img src="images/Bola_Tinubu_portrait.jpg" alt="Bola Ahmed Tinubu" class="president pres_tinubu">
+      </div>
+
+      <button class="select tinubu" onclick="
+      btn_toggle(this,'tinubu','goodluck','buhari')">SELECT</button>
+    </div>
+
+  </div>
+  <div class="btn-div">
+    <input type="text" name=" Voter's name" placeholder="Input your full name here" autocomplete="on" class="Name_collector"  autofocus>
+  
+    <button class="vote_btn" onclick="vote_entry()">VOTE</button>
+
+      <button class="current_vote">View Current Votes</button>
+     <div class="display_smth "></div>
+      <button class="newest">New President</button>    
+      <button class="resetter">RESET VOTES</button>
+  </div>
+
+</div>
+
+<section>
+
+  <p>
+     <span style="font-weight: bold; color: red;">NOTE:</span>  You can vote for Tinubu by clicking T  on your keyboard, for Peter by clicking P and for Goodluck by clicking G. <br>
+      <span style="color: red;">Votes cannot be deleted!</span>
+  </p>
+
+  <h2>How it works?</h1>
+    <ul>
+      <li>Each user enters the election voting portal website.</li>
+      <li>The candidate to be voted for is selected.</li>
+      <li>The user name is inputted in the box provided.</li>
+      <li>User name can't be a number.</li>
+      <li>The candidate is voted for by clicking the vote button.</li>
+      <li>To see current the updated vote number...</li>
+      <li>...the view current button is clicked</li>
+      <li>The new president is known by clicking the New president button</li>
+      <li>The reset vote button resets all votes permanently</li>
+      <li>Some buttons get disabled when others are clicked</li>
+      <li>The votes are permanently stored even after...</li>
+      <li>...reloading the page unless resetted.</li>
+      <li>Contact the developer on whatsapp <i class="fa-solid fa-arrow-down" style="color: #15b812;"></i>.</li>
+    </ul>
+
+</section>
+</main>
+<footer>
+  <a class="back" href="#inputt" >Back to top.</a>
+  <div class="flexing">
+  <p class="contact">Contact us:</p>  
+<a href="https://wa.me/2348062301372" target="_blank"><i class="fa-brands  fa-xl fa-square-whatsapp newed" style="color: #00c000;"></i></a>
+<a><i class="fa-brands fa-xl fa-square-instagram newed" style="color: #d5036c;"></i></a>
+<a href=""><i class="fa-brands newed fa-xl fa-facebook" style="color: #2c1dff;"></i></a>
+
+  </div>
+
+<p class="last">
+  &copy; 2025 Vote | Created by Idowu Kolade | All rights reserved.
+</p>
+  
+</footer>
+
+<script src="vote.js"></script>
+
+</body>
+</html>
