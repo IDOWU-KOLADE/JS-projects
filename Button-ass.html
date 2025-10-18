@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+   button:nth-of-type(1) {
+    border-radius: 3px; 
+    background-color: rgb(235, 235, 235);
+    border: none;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 16px;
+   }
+   button.game.on {
+    background: black;
+    color: white;
+   }
+
+  </style>
+</head>
+<body>
+  
+<button class="game">Gaming</button>
+
+
+  <script>
+
+const gamebtn = document.querySelector('.game');
+gamebtn.addEventListener('click',()=>{
+  if(gamebtn.classList.contains('on')){
+    gamebtn.classList.remove('on')
+  } else{
+    gamebtn.classList.add('on')
+  }
+})
+
+  </script>
+</body>
+</html>
