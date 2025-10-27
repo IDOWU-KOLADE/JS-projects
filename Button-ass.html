@@ -6,7 +6,7 @@
   <title>Document</title>
   <style>
 
-   button:nth-of-type(1) {
+    .gen {
     border-radius: 3px; 
     background-color: rgb(235, 235, 235);
     border: none;
@@ -14,7 +14,7 @@
     font-weight: bold;
     font-size: 16px;
    }
-   button.game.on {
+   button.gen.on {
     background: black;
     color: white;
    }
@@ -23,7 +23,11 @@
 </head>
 <body>
   
-<button class="game">Gaming</button>
+<button class="game gen">Gaming</button>
+<br><br>
+<button class="gen fess" onclick="togglebtn(this,'sess','tess')">Gaming</button>
+<button class="gen sess" onclick="togglebtn(this,'fess','tess')">Music</button>
+<button class="gen tess" onclick="togglebtn(this,'fess','sess')">Tech</button>
 
 
   <script>
@@ -36,6 +40,19 @@ gamebtn.addEventListener('click',()=>{
     gamebtn.classList.add('on')
   }
 })
+
+function togglebtn (it,sess,tess) {
+
+  if(it.classList.contains('on')){
+    it.classList.remove('on')
+  } else{
+    it.classList.add('on')
+  }
+
+  document.querySelector(`.${sess}`).classList.remove(`on`);
+  document.querySelector(`.${tess}`).classList.remove(`on`)
+
+}
 
   </script>
 </body>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>Todo List Practice 1</p>
+  <input type="text" class="valh">
+  <button class="add">Add</button>
+
+  <script>
+    const todoList = [];
+    const add_btn = document.querySelector('.add')
+    const collector = document.querySelector('.valh');
+
+    function addTodo() {
+      const collector = document.querySelector('.valh');
+      let val = collector.value;
+      
+      todoList.push(val);
+      console.log(todoList);
+    collector.value = '';
+    }
+add_btn.addEventListener('click', ()=> {
+  addTodo();
+})
+  </script>
+</body>
+</html>
