@@ -9,11 +9,30 @@
   <p>Todo List Practice 1</p>
   <input type="text" class="valh">
   <button class="add">Add</button>
-
+  <div class="lists">
+    
+  </div>
   <script>
-    const todoList = [];
-    const add_btn = document.querySelector('.add')
+    const todoList = ['make dinner', 'wash dishes'];
+    const add_btn = document.querySelector('.add');
     const collector = document.querySelector('.valh');
+    
+    const list_div = document.querySelector('.lists');
+   displaytask();
+
+    function displaytask () {
+        let html =''
+
+      for (let i=0; i<todoList.length; i++) {
+
+          const task = todoList[i];
+          let htmli = `<p>${task}</p>`;
+          html += htmli;
+          list_div.innerHTML= html
+
+        };      
+    };
+  
 
     function addTodo() {
       const collector = document.querySelector('.valh');
@@ -22,6 +41,7 @@
       todoList.push(val);
       console.log(todoList);
     collector.value = '';
+    displaytask();
     }
 add_btn.addEventListener('click', ()=> {
   addTodo();
