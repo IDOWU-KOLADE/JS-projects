@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        List = [1, 'Two','Two', 'Three','Three',1]
+        function Unique (Array) {
+            Newarray =[]
+            for (let i= 0;i<Array.length; i++) {
+               const item = Array[i]
+               if (!Newarray.includes(item)) {
+                Newarray.push(item)
+               }
+            }
+            console.log(Newarray)
+        }
+Unique(List);
+    </script> 
+</body>
+</html>

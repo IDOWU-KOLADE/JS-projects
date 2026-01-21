@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+// IF you want a code that simply does the work, very easily, although modifying the arrray, use this
+
+
+/* 
+        const pitipiti = ['Pit','egg', 'Damn','search','search','egg','egg','egg','yam']
+
+ 
+function indexteller (Subject) {
+      let Newarray = []
+      let count=0
+
+        Subject.reverse()
+    for (let i=0; i< Subject.length; i++) {
+        if (Subject[i]== 'egg' && count <2){
+           count++
+           continue;
+        
+        }
+        Newarray.push(Subject[i])
+        
+        
+    }
+console.log(Newarray.reverse())
+}
+indexteller(pitipiti);
+console.log(pitipiti)
+
+
+
+ */
+
+//  IF yo want a code that does the worj in a more professional way without altering the array, use thus
+        const pitipiti = ['Pit','egg', 'Damn','search','search','egg','egg','egg','yam']
+
+ 
+function indexteller (Subject) {
+      let Newarray = []
+      let count=0
+
+   const new_subj = Subject.slice().reverse() //The slice creates a copy of the array, preventing modification
+    for (let i=0; i< new_subj.length; i++) {
+        if (new_subj[i]== 'egg' && count <2){
+           count++
+           continue;
+        
+        }
+        Newarray.push(new_subj[i])
+        
+        
+    }
+console.log(Newarray.reverse())
+}
+indexteller(pitipiti);
+console.log(pitipiti)
+    </script> 
+</body>
+</html>
