@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="starter">Start</button>
+    <button class="cart">Add to cart</button>
+    <p class="display"></p>
+    <script>
+
+       let on= false
+        setInterval(()=> {
+        if (!on){
+            document.title= '(2) New messages'
+            on=true
+        }
+         else{
+            document.title = 'app'
+            on = false
+        }    
+        },1000
+
+        )
+
+        const start_btn = document.querySelector('.starter')
+         let is_buttonon = false
+         let sessid;
+        start_btn.addEventListener('click',()=> {
+               clearTimeout(sessid)
+            if(!is_buttonon){
+                start_btn.disabled=true
+                start_btn.innerHTML= 'Loading...'
+                sessid = setTimeout(()=>{
+                    start_btn.disabled= false
+                    start_btn.innerHTML='Finished'
+                },2000)     
+                
+                is_buttonon= true           
+            }
+            else {
+                sessid=setTimeout(()=>{
+                    start_btn.innerHTML= 'Start'
+                },1000)
+                is_buttonon= false
+            }
+          
+        })
+    
+        const cart_btn = document.querySelector('.cart')
+        const displayp = document.querySelector('.display')
+        let fessid;
+        cart_btn.addEventListener('click',()=>{
+            clearTimeout(fessid)
+            displayp.innerHTML= 'Added'
+            fessid=setTimeout(()=> {
+              displayp.innerHTML=''
+            },2000)
+        })
+    </script>
+</body>
+</html>

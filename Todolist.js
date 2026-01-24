@@ -16,7 +16,27 @@ Add_btn.addEventListener('click', function () {
  
 })
 
+
+ //APPLYING THE forEach function instead of stressing over loops
  function Display () {
+let html=''
+
+Compiler.forEach(function (Value, i) {
+  const Name = Value.Name
+  const Date = Value.Date
+
+  html += `<div>${Name}</div><div>${Date}</div><button onclick='
+  Compiler.splice(${i},1);
+  Display();
+  '>Delete</button>`
+});
+
+collect.innerHTML= html 
+localStorage.setItem('Compile', JSON.stringify(Compiler))
+ }
+
+ 
+ /* function Display () {
 let html=''
 for (let i=0; i<Compiler.length; i++) {
 
@@ -31,4 +51,4 @@ for (let i=0; i<Compiler.length; i++) {
 }
 collect.innerHTML= html 
 localStorage.setItem('Compile', JSON.stringify(Compiler))
- }
+ } */
