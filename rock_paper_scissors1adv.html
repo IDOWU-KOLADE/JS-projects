@@ -60,13 +60,13 @@
 <body>
   <p class="title">Rock Paper Scissors</p>
   <p>JUST FOR FUN</p>
-<button class="move-button" onclick="
+<button class="move-button rock_btn" onclick="
 playGame('rock')
 "><img src="images/rock-emoji.png" alt="" class="move-icon"></button>
-<button class="move-button" onclick="
+<button class="move-button paper_btn" onclick="
 playGame('paper')
 "><img src="images/paper-emoji.png" alt="" class="move-icon"></button>
-<button class="move-button" onclick="
+<button class="move-button  scissors_btn" onclick="
   playGame('scissors')
 "><img src="images/scissors-emoji.png" alt="" class="move-icon"></button>                 
 
@@ -82,6 +82,10 @@ playGame('paper')
       const outcomep = document.querySelector('.outcomes');
       const imagep = document.querySelector('.img_outcome');
       const displayp= document.querySelector('.display');
+      const paperbtn = document.querySelector('.paper_btn')
+      const rockbtn = document.querySelector('.rock_btn')
+      const scissorsbtn = document.querySelector('.scissors_btn')
+
       let scores = JSON.parse(localStorage.getItem('name')) || {
         Wins:0,
         Draws:0,
@@ -128,12 +132,18 @@ playGame('paper')
 
       };
 
-      reset_btn.addEventListener('click',()=> {
+      reset_btn.addEventListener('click',
+          ()=> {
+        confirm1 = confirm('Are you sure u want to rest the scores?')
+        if (confirm1) {
         scores.Draws=0;
         scores.Wins=0;
         scores.Losses=0;
         displayp.innerHTML=`Wins: ${scores.Wins}, Losses: ${scores.Losses}, Ties: ${scores.Draws}`;
         localStorage.removeItem('name')
+      } else{
+        return;
+      }
       })
   
       let isAutoplaying = false;
@@ -158,6 +168,18 @@ playGame('paper')
       const Autoplaybtn = document.querySelector('.Autoplai')
       Autoplaybtn.addEventListener('click', ()=> {
         Autoplay()
+      })
+
+      document.body.addEventListener('keydown', (event)=> {
+        if (event.key.toLowerCase() ==='r') {
+            rockbtn.click()
+        }
+        else if(event.key.toLowerCase() ==='p') {
+          paperbtn.click()
+        }
+        else if(event.key.toLowerCase() ==='s') {
+          scissorsbtn.click()
+        }
       })
     </script>
 </body>

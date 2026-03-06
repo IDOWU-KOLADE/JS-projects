@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let liist = [1,2,3,-1,3,-4]
+
+      /*The filter function works like foreach but this time, it returns a new array such 
+      that amy value of the array that results to true will be added*/
+
+        const result = liist.filter((val,i)=>{
+            // This code is  ashortcut for the commented one below
+            return val>=0;
+          /*   if(val < 0) {
+                return false;
+            } else return true             */
+        })
+        console.log(result)
+    /*  The map function simply returns an array which each element modified according to 
+       the return value*/
+        const plusten = liist.map((val, i)=> {
+            return val+10;
+        })
+                //   Optional shortcut!
+        // const plusten = liist.map( val => val+10)
+        console.log(plusten)
+    </script>
+</body>
+</html>

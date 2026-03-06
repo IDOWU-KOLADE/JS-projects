@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+/* 
+    When you have only one parameter for an arrow funct, the round brackets
+    aroud the parameter becomes unnecessary */
+        const oneParam = param => {
+            console.log(param+=1)
+        }
+        oneParam(5)
+
+   /*  When an arrow function code is simply a line, then coily brackets
+     become unecessary around the code */
+
+     const oneLine = param => console.log(param+=1)
+     oneLine(4)
+/* 
+     When using the return statement in arrow function and still u are only utilizing 
+     a line then, u don't even need to write return itself as it knows what to return */
+   
+     const returnfunct = param => param+=2;
+     console.log(returnfunct(5))
+
+/*     Using arrow function in an object is also very wise! But an object already have
+    a shortcut for functions which I tageed DAMNSHORT */
+     const objTest = {
+        named: (name)=> console.log(name),
+        height: '6ft',
+        named1 (name) {console.log(name)} //DAMNSHORT
+     }
+     objTest['named']('Skolade')
+     objTest['named1']('Scholar James')
+   
+   
+   </script>
+</body>
+</html>

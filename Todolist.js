@@ -25,10 +25,12 @@ Compiler.forEach(function (Value, i) {
   const Name = Value.Name
   const Date = Value.Date
 
-  html += `<div>${Name}</div><div>${Date}</div><button onclick='
+  html += `<div>${Name}</div><div>${Date}</div><button class= 'delete-button' onclick='
   Compiler.splice(${i},1);
-  Display();
+  Display(); 
   '>Delete</button>`
+
+
 });
 
 collect.innerHTML= html 

@@ -9,21 +9,11 @@
     <button class="starter">Start</button>
     <button class="cart">Add to cart</button>
     <p class="display"></p>
+
+    <h2>Message Buttons</h2>
+    <button class="addm">Add</button>
+    <button class="removem">Remove</button>
     <script>
-
-       let on= false
-        setInterval(()=> {
-        if (!on){
-            document.title= '(2) New messages'
-            on=true
-        }
-         else{
-            document.title = 'app'
-            on = false
-        }    
-        },1000
-
-        )
 
         const start_btn = document.querySelector('.starter')
          let is_buttonon = false
@@ -59,6 +49,36 @@
               displayp.innerHTML=''
             },2000)
         })
+
+        const addmessage= document.querySelector('.addm')
+        const rmessage = document.querySelector('.removem')
+
+let fetchid;
+let i=0;
+let change = false;
+
+    function Updatemessage () {
+
+        if (i<0) {
+            document.title= 'app'
+        }
+        else{
+            if(!change) {
+                document.title= 'app';
+            }
+            else{
+                document.title= `(${i}) New messages`
+            }
+        }
+        change = !change
+    }
+setInterval(Updatemessage,1000);
+    addmessage.addEventListener('click', ()=> {
+        i+=1
+    })
+    rmessage.addEventListener('click', ()=> {
+    i-=1
+    })
     </script>
 </body>
 </html>

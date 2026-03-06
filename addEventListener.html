@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button class="click_btn">Click</button>
+
+    <script>
+/* 
+        addEventListeners also allow us to add multiple listeners, i.e same 
+        action e.g click but will do two code */
+        
+        const fessbtn = document.querySelector('.click_btn')
+        testrun = ()=> {
+            console.log('click2')
+        }
+        fessbtn.addEventListener('click',()=> {
+            console.log('click')
+        })
+        fessbtn.addEventListener('click', testrun
+        )
+/*         This removes the function testrun from the button when clicked,
+        i.e the button does respond to that function under the click event anymore */
+        fessbtn.removeEventListener('click', testrun)
+    </script>
+</body>
+</html>
