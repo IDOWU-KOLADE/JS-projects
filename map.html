@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="collector paragraph"></p>
+
+    <script>
+const paragraph = document.querySelector('.collector')
+        // Creates a new map
+        const fruits = new Map([['Apples',900],['Avocado', 600]]);
+        // fruits.set('Banana', 200);  Adds to the map(rememeber map is in form of key value pairs)
+        fruits.set('Oranges', 500);
+        fruits.set('Pineapple', 250);
+
+
+        
+        console.log(fruits.get('Apples'))  // Get's the value of the key
+        console.log(fruits)
+
+        console.log(fruits.size)
+        fruits.delete('Apples')
+         console.log(fruits.size)
+         console.log(fruits.has('Oranges'))
+   let text =''
+         fruits.forEach((value, key)=> {
+                text+=`${key} = ${value}<br>`
+
+         })
+         paragraph.innerHTML= text
+    </script>
+</body>
+</html>

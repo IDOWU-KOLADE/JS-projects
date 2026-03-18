@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+      
+  /*       const array1 = ['a','b','c']
+         const set1 = new Set(array1)
+
+        console.log(set1)
+        let text = '';
+        for (const x of set1) {
+            text+=x;
+        }
+        console.log(set1.has('b'))
+
+        let text2 = '';
+       const set2 = new Set([1,2,3,'a'])
+
+       set2.values().forEach((val)=> {
+        console.log(val)
+       })
+      console.log(text2)
+
+ */
+
+ const A = new Set(['b','d','c'])
+const B = new Set(['b','c','c','d','g'])
+const C = A.isSupersetOf(B)
+console.log(C)
+
+
+const obj = {"name": 'Kolade', "nickname": 'Skolade'}
+let a = new WeakSet();
+a.add(obj);
+console.log(a.has(obj))
+a.delete(obj)
+console.log(a.has(obj))
+console.log(B.size)
+// Converts the set to an array
+console.log([...A])
+
+
+
+
+    </script>
+</body>
+</html>

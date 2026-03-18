@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const arr1 = ["apple", "banana", "orange", "grape", "mango"];
+const arr2 = ["banana", "kiwi", "mango", "apple", "pear"];
+
+      const fruits1 = new Set(arr1)
+      const fruits2 = new Set(arr2)
+
+      const common_fruits = fruits1.intersection(fruits2)
+      for (const fruit of common_fruits) {
+        console.log(fruit)
+      }
+
+      const nums = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 3, 3, 2, 1];
+
+// Expected output: [3, 1, 5, 2, 4, 6, 9]
+// (3 appears 4 times, 1 appears 3 times, 5 appears 3 times etc)
+let numbers = {}
+nums.forEach((num)=> {
+        if(numbers[num]) {
+            numbers[num]++
+        } else{
+            numbers[num]= 1;
+        }
+})
+
+console.log(numbers)
+const unique = [...new Set(nums)];  //Creates a new array of unique values from the copy of nums array 
+unique.sort((a, b) => numbers[b] - numbers[a]);  //If b-a is positive b comes first else a comes first.
+console.log(unique); // [3, 1, 5, 2, 4, 6, 9]
+
+for (let i=0; i<30; i++) {
+    console.log(Math.floor(Math.random()*50)+1)
+}
+    </script>
+</body>
+</html>

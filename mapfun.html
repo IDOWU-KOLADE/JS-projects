@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  <h1>Cars and their price</h1>
+  <p class="collector"></p>
+    <script>
+        const collector_paragraph = document.querySelector('.collector')
+        const cars = new Map()
+        cars.set('Ferrari', 30000)
+        cars.set('Lamborghini', 40000)
+        cars.set('HighLander',20000)
+        cars.set('Toyota', 10000)
+            let text =''
+        cars.forEach((value, key)=> {
+            text+=`${key} = ${value}<br>`
+        })
+        collector_paragraph.innerHTML= text;
+
+
+        for (const [key,value] of cars.entries()) {
+            console.log(key,value)
+        }
+    </script>
+</body>
+</html>

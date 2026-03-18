@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        const cars1 = {'Ferrari': 30000, 'Lamborghini': 40000, 'HighLander': 20000, 'Toyota': 10000}
+   const cars = new Map()
+        cars.set('Ferrari', 30000)
+        cars.set('Lamborghini', 40000)
+        cars.set('HighLander',20000)
+        cars.set('Toyota', 10000)
+        for (const [keys, val] of cars)  {
+            console.log(keys,val)
+        }
+        for (const keys in cars1) {
+            console.log(keys, cars1[keys])
+        }
+        
+        
+    </script>
+</body>
+</html>
