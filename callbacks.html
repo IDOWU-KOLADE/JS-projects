@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+    function show(answer) {
+        console.log(`The sum is actually ${answer}`)
+    }
+
+    function myCalculator (first, second, call) {
+        let sum = first + second;
+        call(sum)   // show is our callback function!
+    }
+    myCalculator(8,902020,show)
+
+    //callback error handling.
+//You can always look at this code to challenge ur thinking!!! Very tricky stuff!
+    function doSomething(callback) {
+        let error = true;
+
+        if (error) {
+            callback('something went wrong', null)
+        }else {
+            callback(null,'here is ur data')
+        }
+    }
+    function testrun (error, result) {
+            if(error) {
+                console.log('Error: ',error )
+            }else{
+                console.log('Success: ', result)
+            }
+    }
+    doSomething(testrun)
+</script>
+</body>
+</html>

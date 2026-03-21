@@ -13,7 +13,38 @@
         console.log(name)
 
         const fruits = ["Bananas", "Oranges", "Apples", "Mangos"];
-        let 
+        // let {[0]:fruit1,[3]:fruit4 }=fruits
+        // console.log(fruit1, fruit4)
+ 
+        let [fruit01, fruit02,...rest] = fruits;
+console.log(rest)
+
+
+//map destructuring
+
+// Create a Map
+const fruits1 = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+
+text=''
+
+for (const [key,val] of fruits1) {
+    text+=`${key} is ${val}\n`
+}
+console.log(text)
+
+//swapping js variables
+
+let firstName = "John";
+let lastName = "Doe";
+
+// Destructuring
+[firstName, lastName] = [lastName, firstName];
+console.log(firstName)
+console.log(typeof firstName)
     </script>
 </body>
 </html>

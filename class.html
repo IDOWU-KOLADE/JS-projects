@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+    
+    class Person {
+        constructor(name,age,uni) {
+            this.name = name;
+            this.age = age;
+            this.university = uni;
+        }
+     set age(val) {
+            if(val<0) {
+                console.log('How the hell will ur age be negative')
+                return;
+            }else {
+                this._age= val
+            }
+        }
+        get age() {
+            return this._age;
+        }
+    }
+
+    const person1 = new Person('Jake', -9, 'OAU')
+    console.log(person1.age)
+
+</script>
+</body>
+</html>

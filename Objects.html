@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+   // Functions inside objects called method, and how "this" works
+    const person ={
+        name: 'Kolade',
+        age:20,
+        greet() {
+            console.log(`Good morning ${this.name}, we know u re ${this.age}`)
+        }
+}
+person.greet();
+
+// Constructor method of creating objects
+//They can also have methods too
+// function People(name, age, job) {
+//     this.name= name,
+//     this.age= age,
+//     this.job= job,
+//     this.greet= function() {
+//         console.log(`${this.name} is doing well`)
+//     };
+// }
+
+// const person1 =new People('Kolade',19,'Entrepreneur')
+// console.log(person1.name)
+// person1.greet()
+
+// Class - modern way
+class People {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    greet(damn = 'am') {
+        console.log(`Hi I ${damn} ` + this.name);
+    }
+}
+
+const person1 =new People('Tola',19)
+console.log(person1.name)
+person1.greet();
+
+// The "extends" and "super" keyword
+
+class Person {
+    constructor(name, age, class1) {
+        this.name = name,
+        this.class= class1
+    }
+
+    greet () {
+        console.log(`Hi! I am ${this.name}, I am ${this.age} years old and I am currently in ${this.class}`)
+    }
+}
+
+/* class Student extends Person{
+        constructor(name,age,class1,school,position) {
+            super(name,age,class1);
+            this.school = school;
+            this.position = position;
+        }
+       get yay() {
+            console.log(`Yay! I am glad, I am now the ${this.position}.`)
+        }
+} */
+
+// const student1 = new Student('Bola',25, 'SS3', 'Royal Brook', 'Head Girl')
+// // When we use ""get"", we don't need to use paranthesis
+// student1.yay;
+// student1.greet()
+
+
+// testing the ""set"" keyword
+// Note the static method is a method that belongs to the class itself, not even the object in the class, note: 
+// the "this" doesn't work here cuz the static methos have no accesss to it!
+class Student extends Person{
+        constructor(name,age,class1,school,position) {
+            super(name,age,class1);
+            this.school = school;
+            this.position = position;
+            this.age = age
+        }
+       set age(value) {
+            if (value<0) {
+                console.log('Hey, be a bit smarter! age cannot be negative')
+                return;
+            }else {
+              this._age= value
+            }
+        }
+    get age() {
+        return this._age;
+    }
+
+    static info(category) {
+            console.log(`Hey! I am a ${category} class`)
+    }
+}
+
+const student1 = new Student('Bola',-25, 'SS3', 'Royal Brook', 'Head Girl')
+console.log(student1.age)
+//Calling the static method is usually directly on the class
+Student.info('child');
+// NOTE: You can also return stuffs and with the static methods!!!
+
+// To use objects in a static method, u can use them as a paramter
+
+class Cars {
+    constructor(name, year) {
+        this.name= name;
+        this.release = year
+    }
+    static analysis (x) {
+        console.log(`Hello, we talk about cars here! Rn we have the ${x.name} released in year ${x.release}`) 
+    }
+}
+const car1 = new Cars('G-Wagon', 2000);
+//This gives the analysis of car1.
+Cars.analysis(car1);
+</script>
+</body>
+</html>
