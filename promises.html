@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+<script>
+ let myPromise = new Promise((resolve,reject)=> {
+    let completed = 0;
+
+    if (completed) {
+        resolve('Success!');
+    } else {
+        reject('Failed!');
+    }
+ });
+
+ //The then part runs for the resolve, and he catch is for the reject, note reject is when there's an error, and resolve is when evrything is fine
+ //Obviously breaking promises isn't fine!
+ myPromise.then((message)=> {
+        console.log(`Yay! you fulfilled ur promise. ${message}`) //The message here is Success.
+ }).catch((message)=>{
+        console.log(`Uhhh! you didn't fulfil your promise. Mission ${message}`) //The message here is Failed.
+ });
+
+
+ //Little promise play!🤌
+ 
+ let userLeft = true;
+ let userDistracted = false;
+function monitorUserPromise() {
+    return new Promise((resolve,reject)=> {
+        if (userLeft) {
+           reject({
+            name: 'User left',
+            result: 'Error'
+           })
+        }else if (userDistracted) {
+            reject({
+                name: 'User got distracted',
+                result: "Error"
+            })
+        } else {
+            resolve({
+                name: 'User successfully registered',
+                result: 'Success'
+            })
+        }
+    })
+}
+
+monitorUserPromise().then((message)=> {
+    console.log(`${message.name}, ${message.result}!`)
+}).catch((message)=>{
+console.log(`${message.name}, ${message.result}!`)
+})
+
+
+</script>
+</body>
+</html>
