@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+<script>
+ let myPromise = new Promise((resolve,reject)=> {
+    let completed = 1;
+
+    if (completed) {
+        resolve('Success!');
+    } else {
+        reject('Failed!');
+    }
+ });
+
+ //The then part runs for the resolve, and he catch is for the reject, note reject is when there's an error, and resolve is when evrything is fine
+ //Obviously breaking promises isn't fine!
+/*  myPromise.then((message)=> {
+        console.log(`Yay! you fulfilled ur promise. ${message}`) //The message here is Success.
+ }).catch((message)=>{
+        console.log(`Uhhh! you didn't fulfil your promise. Mission ${message}`) //The message here is Failed.
+ }); */
+ //Another syntax, the same thing but doesn't even uses "catch"
+ myPromise.then((message)=> {
+        console.log(`Yay! you fulfilled ur promise. ${message}`) //The message here is Success.
+ },(message)=>{
+        console.log(`Uhhh! you didn't fulfil your promise. Mission ${message}`) //The message here is Failed.
+ });
+
+
+ //Little promise play!🤌
+ 
+ let userLeft = true;
+ let userDistracted = false;
+function monitorUserPromise() {
+    return new Promise((resolve,reject)=> {
+        if (userLeft) {
+           reject({
+            name: 'User left',
+            result: 'Error'
+           })
+        }else if (userDistracted) {
+            reject({
+                name: 'User got distracted',
+                result: "Error"
+            })
+        } else {
+            resolve({
+                name: 'User successfully registered',
+                result: 'Success'
+            })
+        }
+    })
+}
+
+monitorUserPromise().then((message)=> {
+    console.log(`${message.name}, ${message.result}!`)
+}).catch((message)=>{
+console.log(`${message.name}, ${message.result}!`)
+})
+
+//Just so u know
+// Long way
+// const promise = new Promise((resolve, reject) => {
+//     reject("Something failed!");
+// });
+
+// Shortcut
+// const promise1 = Promise.reject("Something failed!");
+
+
+
+// Complicated promises
+function step1() {
+    return new Promise(resolve => {
+        setTimeout(() => resolve("Step 1 done"), 1000);
+    });
+}
+
+function step2(previousResult) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(previousResult + " → Step 2 done"), 1000);
+    });
+}
+
+function step3(previousResult) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(previousResult + " → Step 3 done"), 1000);
+    });
+}
+
+/* step1()
+    .then(result => {
+        console.log(result); // "Step 1 done"
+        return step2(result); // pass result to next step
+    })
+    .then(result => {
+        console.log(result); // "Step 1 done → Step 2 done"
+        return step3(result);
+    })
+    .then(result => {
+        console.log(result); // "Step 1 done → Step 2 done → Step 3 done"
+    })
+    .catch(error => {
+        console.log(error); // catches any error in the whole chain
+    }); */
+
+    function step11 () {
+        return new Promise((resolve)=> {
+            setTimeout(()=> {
+                resolve(`Step 11 done`)
+            }, 1000)
+        })
+    }
+    function step12 (previousResult) {
+        return new Promise((resolve)=> {
+            setTimeout(()=> {
+                resolve(`${previousResult} -> Step 12 done`)
+            },1000)
+        })
+    }
+    function step13 (previousResult) {
+        return new Promise((resolve)=> {
+            setTimeout(()=> {
+                resolve(`${previousResult} -> Step 13 done.`)
+            })
+        })
+    }
+
+    // step11()
+    // .then((message)=> {
+    //    console.log(`${message}`);
+    //     return step12(message)
+    // })
+    // .then((message)=> {
+    //     console.log(`${message}`);
+    //     return step13(message);
+    // })
+    // .then((message)=> {
+    //     console.log(`${message}`);
+    // })
+    // .catch((error)=> {
+    //     console.log(`${error}`)
+    // })
+
+    async function run() {
+            let fess = await step11();
+            console.log(fess)
+            let sess = await step12(fess);
+            console.log(sess)
+            let tess = await step13(sess);
+            console.log(tess)
+    }
+    run()
+/* 
+    // note: this wto re equal i.e,
+    // This
+    async function myFunction() {
+    return "Hello";
+}  // is the same as this👇
+    function myFunction() {
+    return Promise.resolve("Hello");
+}
+
+ */
+
+
+//  async function getData() {
+//     const result = await new Promise(resolve => {
+//         setTimeout(() => resolve("Data received!"), 2000);
+//     });
+
+//     console.log(result); // "Data received!" ← waits 2 seconds then runs
+//     console.log("This runs after"); // ← runs after result is ready
+// }
+
+// getData();
+
+
+
+
+async function testrun () {
+    let i = 0 
+    const result = await new Promise( resolve => {
+        setTimeout (()=> {
+            resolve(`I am Skolade`)
+            
+        }, 1000)
+    }
+)
+    while(i<5){
+            console.log(result,`${i}`);
+        i++;
+}
+
+}
+testrun()
+
+//NOTE: you don't need new promise with fetch, just await it
+async function failtest () {
+    try{
+            const fail = await fetch('data.json')
+    }
+    catch (error) {
+            console.log(error)
+    }
+    
+    }
+
+
+failtest()
+
+</script>
+</body>
+</html>
